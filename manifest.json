@@ -1,0 +1,12 @@
+{
+  "name": "Dart League -- Stats Guys",
+  "background_color": "#000000",
+  "short_name": "Dart League",
+  "start_url": "/?utm_source=progressive_web_app",
+  "display": "standalone",
+  "icons": [{
+    "src": "icon.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }]
+}
