@@ -1,18 +1,4 @@
-# CRICKET
+# 21
 ---
-
-practicing react/redux/PWA with a cricket app.
-what other PWA standards do I need to incorporate?
-
-TODO:
-stats
-P2P scoring...? (just need to call firebase in action creator... can have one db for a single game that just gets sweeped out each time )
-refactor redux? (read about better practices first)
-CSS.js (inline css for each component)
-rankings?
-CSS Modules
-
-
-complicated pieces ->
-how to properly structure data
-how to network with firebase and redux
+practicing react/redux/PWA with a 21 app.
+21 is a game the boys in the fisher house have been playing for weeks. It is a simple basketball game, but is great fun. I noticed that we were often pining for more detailed stats past just the simple wins and losses, so I got the idea to create a basic app and practice my PWA skills. This is the result.

@@ -29,7 +29,7 @@ class ScoreBoardContainer extends Component {
   updateRecords(){
     var context = this;
     var database = firebase.database();
-    
+
 
     if ('winner' in this.props.score) {
       const winner = this.props.playersInGame[context.props.score.winner];
@@ -64,7 +64,7 @@ class ScoreBoardContainer extends Component {
           title="Game Time"
         />
 
-        <div style={{padding: "20px", height: "100%"}}>
+        <div style={{padding: "20px"}}>
           <h6>Now Up: {this.props.playersInGame[this.state.currentPlayer]}</h6>
           <div className="player--item">
             {(this.state.currentPlayer in this.props.score)
@@ -100,7 +100,7 @@ class ScoreBoardContainer extends Component {
             }
 
           </div>
-          <button className="start--button" onClick={() => {this.updateRecords()}}>End Game</button>
+          <button className="start--button" onClick={() => {this.updateRecords(); window.location.replace('/')} }>End Game</button>
       </div>
     )
   }

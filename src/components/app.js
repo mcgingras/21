@@ -15,6 +15,7 @@ class App extends Component {
       <div>
         <h3>21 <br/> Fisher Edition</h3>
         <a href={"/play"}>Play</a>
+        <a href={"/stats"}>Stats</a>
       </div>
     );
   }

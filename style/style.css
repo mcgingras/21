@@ -92,6 +92,10 @@ and (orientation : portrait) {
     float: right;
   }
 
+  .player-stats-record{
+    font-size: 11px;
+  }
+
   .player--highlight{
     color: #64BAEF;
   }
