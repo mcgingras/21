@@ -87,6 +87,11 @@ and (orientation : portrait) {
     color: #949CA7;
   }
 
+  .player-stats{
+    color: #64BAEF;
+    float: right;
+  }
+
   .player--highlight{
     color: #64BAEF;
   }

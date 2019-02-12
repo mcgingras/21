@@ -29,7 +29,7 @@ class ScoreBoardContainer extends Component {
   updateRecords(){
     var context = this;
     var database = firebase.database();
-    console.log(database);
+    
 
     if ('winner' in this.props.score) {
       const winner = this.props.playersInGame[context.props.score.winner];
