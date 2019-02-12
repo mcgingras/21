@@ -77,6 +77,10 @@ and (orientation : portrait) {
     margin-top: 20px;
   }
 
+  h3{
+    text-align: center;
+  }
+
   .player--item{
     border-bottom: .5px solid #949CA7;
     padding: 10px 0px;

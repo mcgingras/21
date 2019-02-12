@@ -67,6 +67,11 @@ class ScoreBoardContainer extends Component {
             <h6>Scoreboard</h6>
             <p className="player--item">Coming Soon...</p>
 
+            {('winner' in this.props.score)
+              ? <div>{this.props.playersInGame[this.props.score.winner]} wins!</div>
+              : <div></div>
+            }
+
           </div>
           <button className="start--button">End Game</button>
       </div>

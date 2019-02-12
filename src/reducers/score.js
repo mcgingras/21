@@ -15,14 +15,28 @@ const score = (state = newGame, action) => {
   switch (action.type) {
     case 'UPDATE_SCORE':
       console.log("NEW SCORE!");
-      console.log(state);
 
       const player = action.payload.player;
       const score = action.payload.score;
 
+
+
       if(player in state){
-        console.log(state[player]);
-        console.log(state[player]['history']);
+
+        if(state[player]['total'] + score  == 21){
+          let s = {
+            ...state,
+            [player]: {
+              ...state[player],
+              history: [...state[player]['history'], score],
+              total: state[player]['total'] += score
+            },
+            winner: player
+          }
+
+          return s;
+        }
+
         let s = {
           ...state,
           [player]: {
