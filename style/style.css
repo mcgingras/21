@@ -27,7 +27,7 @@ and (orientation : portrait) {
 
   .body-container{
     position: absolute;
-    top: 60px;
+    top: 50px;
     width: 100%;
     padding: 20px;
   }
@@ -59,20 +59,21 @@ and (orientation : portrait) {
   .header{
     position: fixed;
     width: 100%;
-    height: 60px;
+    height: 50px;
     z-index: 10;
   }
 
   .footer{
     position: fixed;
     bottom: 0;
-    height: 8vh;
+    height: 9vh;
     width: 100%;
     background-color: #475464;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
+    padding-bottom: 3rem;
   }
 
   .score--button{
@@ -105,6 +106,7 @@ and (orientation : portrait) {
   .player-stats-record{
     font-size: 11px;
     margin-left: 3px;
+    color: #64C970;
   }
 
   .player--highlight{
