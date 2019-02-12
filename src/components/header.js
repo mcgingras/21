@@ -13,7 +13,7 @@ const Header = ( {title, path} ) => {
   }
 
   return (
-    <div style={HeaderStyle}>
+    <div style={HeaderStyle} className="header">
       <a href={path} style={{color: "black", fontSize: ".8rem"}}>Back</a>
       {title}
       <a href="/signup" style={{color: "black", fontSize: ".8rem"}}>Add</a>

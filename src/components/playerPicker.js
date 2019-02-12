@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { addPlayerToGame } from '../actions';
 import Header from './header';
+import Footer from './footer';
 
 class PlayerPicker extends Component {
   constructor(props){
@@ -80,7 +81,7 @@ class PlayerPicker extends Component {
       <Header
         title="Add Players"
       />
-        <div style={{padding: "20px"}}>
+        <div className="body-container">
 
           <input
             type="text"
@@ -112,6 +113,7 @@ class PlayerPicker extends Component {
           </div>
 
         </div>
+        <Footer />
       </div>
     )
   }

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import scoreboard from '../static/scoreboard.svg';
+import basketball from '../static/basketball.svg'
 
 const footerItem = (props) => {
 
   const logo = {
-    backgroundColor: "#444",
-    borderRadius: "30px",
     height: "30px",
     width: "30px",
     margin: "10px auto"
@@ -12,10 +12,7 @@ const footerItem = (props) => {
 
   return (
     <a href={"/"+props.title}>
-      <div style={logo}>
-      </div>
-
-      <h6>{props.title}</h6>
+      <img src={props.logo} style={logo}></img>
     </a>
   )
 }

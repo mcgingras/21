@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../components/header';
+import Footer from '../components/footer';
 import { connect } from 'react-redux';
 
 
@@ -64,7 +65,7 @@ class ScoreBoardContainer extends Component {
           title="Game Time"
         />
 
-        <div style={{padding: "20px"}}>
+        <div className="body-container">
           <h6>Now Up: {this.props.playersInGame[this.state.currentPlayer]}</h6>
           <div className="player--item">
             {(this.state.currentPlayer in this.props.score)

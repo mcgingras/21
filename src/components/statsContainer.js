@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './header';
+import Footer from './footer';
 
 
 export default class StatsContainer extends Component {
@@ -24,7 +25,7 @@ export default class StatsContainer extends Component {
     return (
       <div>
       <Header path="/" right="add" title="Stats" />
-        <div style={{padding: "20px"}}>
+        <div className="body-container">
           <h6>Overall Record</h6>
 
           {Object.keys(this.state.records).map((player) => {
@@ -44,6 +45,7 @@ export default class StatsContainer extends Component {
           <p className="player--item">Coming Soon...</p>
 
         </div>
+        <Footer />
       </div>
     );
   }
