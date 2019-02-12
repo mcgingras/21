@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { addPlayerToGame } from '../actions';
+import Header from './header';
 
 class PlayerPicker extends Component {
   constructor(props){
@@ -76,36 +77,41 @@ class PlayerPicker extends Component {
     const playersFound = this.state.results.length > 0;
     return (
       <div>
+      <Header
+        title="Add Players"
+      />
+        <div style={{padding: "20px"}}>
 
-        <input
-          type="text"
-          className="playerSearch"
-          placeholder="search player"
-          onChange={this.onInputChange}
-          ref={ this.player }
-        />
-        <div>
-        {
-          playersFound
-          ? this.state.results.map((player) => {
-              return (<p onClick={() => {this.props.addPlayerToGame(player)}}>{player}</p>)
-            })
-          : <button onClick={this.addPlayer}>Add Player</button>
-        }
-        </div>
-
-        <h5>Current players</h5>
-        <div>
-          { this.props.playersInGame.length > 0
-            ? this.props.playersInGame.map((player) => {
-              return (
-                <p>{player}</p>
-              )
-            })
-            : <div>No one in game yet.</div>
+          <input
+            type="text"
+            className="playerSearch"
+            onChange={this.onInputChange}
+            ref={ this.player }
+          />
+          <div>
+          <h6>Players</h6>
+          {
+            playersFound
+            ? this.state.results.map((player) => {
+                return (<p className="player--item" onClick={() => {this.setState({query: ""}); this.player.current.value = ""; this.runQuery(""); this.props.addPlayerToGame(player)}}>{player}</p>)
+              })
+            : <p className="player--item player--highlight" onClick={this.addPlayer}>{this.state.query.length > 0 ? 'Add ' +this.state.query : '' }</p>
           }
-        </div>
+          </div>
 
+          <h6>Players in Next Game</h6>
+          <div>
+            { this.props.playersInGame.length > 0
+              ? this.props.playersInGame.map((player) => {
+                return (
+                  <p className="player--item">{player}</p>
+                )
+              })
+              : <div className="player--item">No one in game yet.</div>
+            }
+          </div>
+
+        </div>
       </div>
     )
   }

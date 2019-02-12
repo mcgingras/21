@@ -5,6 +5,9 @@
 
 body{
   height: 100vh;
+  background-color: #191C21 !important;
+  color: #FFF !important;
+  font-family: 'Open Sans' !important;
 }
 
 .containers{
@@ -22,68 +25,28 @@ and (orientation : portrait) {
     flex-direction: column;
   }
 
-
-  input{
-    border: 2px solid black;
-  }
-
-  .player-picker{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 100%;
-    padding: 2rem;
-    overflow-x: scroll;
-  }
-
-
-  .button{
-    background-color: black;
-    color: white;
-  }
-
-  .scoreboard--base{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    max-height: 100vh;
-  }
-
-  .scoreboard--base .row{
-    display: flex;
-    justify-content: space-between;
+  .playerSearch{
     margin: 0 auto;
+    margin-bottom: 20px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #475464;
+    color: #BDCADA;
     width: 100%;
   }
 
-  .scoreboard--title{
-    text-align: center;
-    width: 50vw;
-  }
-
-  .scoreboard--box{
-    border: 5px solid black;
-    margin: 8px auto;
-    height: 80px;
-    width: 80px;
-    border-radius: 80px;
-    line-height: 80px;
-    text-align: center;
-  }
-
-  .scoreboard--box-0{
-    border: 5px solid #E0E0E0;
-  }
-
-  .scoreboard--box-1{
-    border: 5px solid #E0E0E0;
-    background-image: url("one.svg");
-  }
-
-  .scoreboard--box-2{
-    border: 5px solid #E0E0E0;
-    background-image: url("two.svg");
+  .start--button{
+    width: calc(100% - 40px);
+    padding: 10px;
+    background-color: #475464;
+    border: none;
+    margin: 0 auto;
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
   }
 
   .header{
@@ -100,6 +63,28 @@ and (orientation : portrait) {
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
+  }
+
+  .score--button{
+    text-align: center;
+    background-color: #475464;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  h6{
+    color: #FEFEFE;
+    margin-top: 20px;
+  }
+
+  .player--item{
+    border-bottom: .5px solid #949CA7;
+    padding: 10px 0px;
+    color: #949CA7;
+  }
+
+  .player--highlight{
+    color: #64BAEF;
   }
 
 }

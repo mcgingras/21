@@ -35,7 +35,6 @@ ReactDOM.render(
         <Route path="/play/" exact component={GameContainer} />
         <Route path="/stats/" exact component={StatsContainer} />
         <Route path="/game/" exact component={ScoreBoardContainer} />
-        <Footer />
       </div>
     </Router>
   </Provider>

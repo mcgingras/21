@@ -3,12 +3,13 @@ import React from 'react';
 const Header = ( {title, path} ) => {
 
   const HeaderStyle = {
-    borderBottom: "2px solid black",
+    backgroundColor: "#000",
+    color: "#FDFDFD",
     textAlign: "center",
     padding: "20px",
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
   }
 
   return (

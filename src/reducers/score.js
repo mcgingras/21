@@ -21,11 +21,28 @@ const score = (state = newGame, action) => {
       const score = action.payload.score;
 
       if(player in state){
-        state[player].push(score);
+        console.log(state[player]);
+        console.log(state[player]['history']);
+        let s = {
+          ...state,
+          [player]: {
+            ...state[player],
+            history: [...state[player]['history'], score],
+            total: state[player]['total'] += score
+          }
+        }
+        return s;
       }
 
       else{
-        state[player] = [score];
+        let s = {
+          ...state,
+          [player]: {
+            history: [score],
+            total: score
+          }
+        }
+        return s;
       }
 
       return state;

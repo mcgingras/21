@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Header from './header';
 import PlayerPicker from './playerPicker';
 import ScoreBoardContainer from '../containers/scoreBoardContainer';
 
@@ -24,11 +23,11 @@ class GameContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{height: "100%"}}>
         { !this.state.live
-          ? <div>
+          ? <div style={{height: "100%"}}>
               <PlayerPicker />
-              <button onClick={() => {this.setState({live: true})}}>Start Game</button>
+              <button className="start--button" onClick={() => {this.setState({live: true})}}>Start Game</button>
             </div>
           : <ScoreBoardContainer/>
         }

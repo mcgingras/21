@@ -13,7 +13,6 @@ export const addPlayerToGame = (username) => {
 }
 
 export const updateScore = (player, score) => {
-  console.log("player "+player+"just hit "+score);
   return {
     type: "UPDATE_SCORE",
     payload: {
