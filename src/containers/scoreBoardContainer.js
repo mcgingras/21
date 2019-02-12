@@ -15,17 +15,46 @@ class ScoreBoardContainer extends Component {
     }
 
     this.nextPlayer = this.nextPlayer.bind(this);
-
-    console.log(this.props.score);
+    this.updateRecords = this.updateRecords.bind(this);
 
   }
 
   nextPlayer(){
     const l = this.props.playersInGame.length;
     const next = (this.state.currentPlayer + 1) % l;
-    console.log(next);
     this.setState({currentPlayer: next});
         // Score: {this.props.score[this.state.currentPlayer]['total']}
+  }
+
+  updateRecords(){
+    var context = this;
+    var database = firebase.database();
+    console.log(database);
+
+    if ('winner' in this.props.score) {
+      const winner = this.props.playersInGame[context.props.score.winner];
+      const players = context.props.playersInGame;
+      players.map((player) => {
+        if (player == winner){
+          database.ref('/record/'+player+'/wins').once('value').then((snap) =>{
+            var wins = snap.val();
+            wins = wins + 1;
+            console.log(wins);
+            database.ref('/record/'+player+'/wins').set(wins);
+          })
+        }
+        else {
+          database.ref('/record/'+player+'/losses').once('value').then((snap) =>{
+            var losses = snap.val();
+            losses = losses + 1;
+            database.ref('/record/'+player+'/losses').set(losses);
+          })
+        }
+      })
+    }
+
+
+    else return;
   }
 
   render(){
@@ -37,33 +66,31 @@ class ScoreBoardContainer extends Component {
 
         <div style={{padding: "20px", height: "100%"}}>
           <h6>Now Up: {this.props.playersInGame[this.state.currentPlayer]}</h6>
-          <p className="player--item">
+          <div className="player--item">
             {(this.state.currentPlayer in this.props.score)
               ? <div>Score: {this.props.score[this.state.currentPlayer]['total']}</div>
               : <div>Score: 0</div>
             }
-          </p>
+          </div>
+
           <div
-           className="score--button"
-           onClick={() => { this.props.updateScore(this.state.currentPlayer, 2)}}
-           >
-           Hoop
-           </div>
-
-           <div
-            className="score--button"
-            onClick={() => { this.props.updateScore(this.state.currentPlayer, 1)}}
-            >
-            Layup
-            </div>
-
-            <div
              className="score--button"
-             onClick={() => {this.props.updateScore(this.state.currentPlayer, 0); this.nextPlayer()}}
+             onClick={() => { this.props.updateScore(this.state.currentPlayer, 2)}}
              >
-             Miss
+             Hoop
+          </div>
+           <div
+              className="score--button"
+              onClick={() => { this.props.updateScore(this.state.currentPlayer, 1)}}
+              >
+              Layup
+           </div>
+            <div
+               className="score--button"
+               onClick={() => {this.props.updateScore(this.state.currentPlayer, 0); this.nextPlayer()}}
+               >
+               Miss
             </div>
-
             <h6>Scoreboard</h6>
             <p className="player--item">Coming Soon...</p>
 
@@ -73,7 +100,7 @@ class ScoreBoardContainer extends Component {
             }
 
           </div>
-          <button className="start--button">End Game</button>
+          <button className="start--button" onClick={() => {this.updateRecords()}}>End Game</button>
       </div>
     )
   }

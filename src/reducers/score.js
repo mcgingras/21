@@ -19,17 +19,18 @@ const score = (state = newGame, action) => {
       const player = action.payload.player;
       const score = action.payload.score;
 
-
-
       if(player in state){
 
-        if(state[player]['total'] + score  == 21){
+        var newScore = state[player]['total'] + score;
+        console.log(newScore);
+
+        if(newScore  == 21){
           let s = {
             ...state,
             [player]: {
               ...state[player],
               history: [...state[player]['history'], score],
-              total: state[player]['total'] += score
+              total: newScore
             },
             winner: player
           }
@@ -37,12 +38,17 @@ const score = (state = newGame, action) => {
           return s;
         }
 
+        // if the player goes over 21, they get bumped back to 15
+        if(newScore > 21){
+          newScore = 15;
+        }
+
         let s = {
           ...state,
           [player]: {
             ...state[player],
             history: [...state[player]['history'], score],
-            total: state[player]['total'] += score
+            total: newScore
           }
         }
         return s;
